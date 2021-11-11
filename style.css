@@ -4,8 +4,13 @@
   font-family: sans-serif;
 }
 
+body {
+  background-color: #e9c46a;
+}
+
 #app {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -18,6 +23,8 @@
 
   height: 500px;
   width: 800px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
 }
 
 #app .slider > img {
@@ -46,4 +53,83 @@
   z-index: 100;
   left: 0px;
   transition: left 1.5s ease-in-out;
+}
+
+#app .controller-slider {
+  /* border: 1px solid red; */
+  margin-top: 88px;
+}
+
+#app .controller-slider button {
+  border: none;
+  background-color: transparent;
+  margin: 8px;
+}
+
+#app .controller-slider button:hover {
+  cursor: pointer;
+}
+
+.dotstyle {
+  margin-top: -30px;
+}
+
+.dotstyle ul {
+  position: relative;
+  /* outline: 1px solid red; */
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  cursor: default;
+}
+
+.dotstyle li {
+  position: relative;
+  margin: 0 16px;
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.dotstyle li a {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border-radius: 50%;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.3);
+  text-indent: -999em;
+  position: absolute;
+  cursor: pointer;
+}
+
+.dotstyle-fillup li a {
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 1);
+  transition: all 0.3s;
+}
+
+.dotstyle-fillup li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 1px #fff;
+  transition: height 0.3s;
+}
+
+.dotstyle-fillup li a:hover,
+.dotstyle-fillup li a:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dotstyle-fillup li.current a::after {
+  height: 100%;
 }

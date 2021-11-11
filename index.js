@@ -6,7 +6,17 @@ const slider = (() => {
     '4.jpg',
   ];
 
-  const previousWithEffect = () => {
+  const toggleCurrentDot = (index) => {
+    const dots = Array.from(document.querySelectorAll('li'));
+    dots.forEach((dot) => {
+      if (dot.classList.contains('current')) {
+        dot.classList.remove('current');
+      }
+    });
+    dots[index].classList.toggle('current');
+  };
+
+  const previousSlide = () => {
     const firstImg = document.querySelector('.image');
     const previousImg = document.querySelector('.image0');
 
@@ -20,8 +30,10 @@ const slider = (() => {
         indexOfPreviousImage = 3;
       }
 
-      const previousFileName = images[indexOfPreviousImage];
-      const previousImageFullPath = `./images/${previousFileName}`;
+      toggleCurrentDot(indexOfPreviousImage);
+
+      const previousImageFileName = images[indexOfPreviousImage];
+      const previousImageFullPath = `./images/${previousImageFileName}`;
       previousImg.src = `${previousImageFullPath}`;
       previousImg.classList.add('active-previous');
 
@@ -32,7 +44,7 @@ const slider = (() => {
     }
   };
 
-  const nextWithEffect = () => {
+  const nextSlide = () => {
     const firstImg = document.querySelector('.image');
     const secondImg = document.querySelector('.image2');
 
@@ -45,6 +57,8 @@ const slider = (() => {
       if (indexOfNextImage === 4) {
         indexOfNextImage = 0;
       }
+
+      toggleCurrentDot(indexOfNextImage);
 
       const nextImageFileName = images[indexOfNextImage];
       const nextImageFullPath = `./images/${nextImageFileName}`;
@@ -59,14 +73,15 @@ const slider = (() => {
   };
 
   const animateSlider = () => {
+    // animateSlideWithDot();
     const btn = document.querySelector('.next');
     btn.addEventListener('click', () => {
-      nextWithEffect();
+      nextSlide();
     });
 
     const previousBtn = document.querySelector('.previous');
     previousBtn.addEventListener('click', () => {
-      previousWithEffect();
+      previousSlide();
     });
   };
 
