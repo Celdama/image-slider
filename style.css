@@ -72,6 +72,7 @@ body {
 
 .dotstyle {
   margin-top: -30px;
+  z-index: 1000;
 }
 
 .dotstyle ul {

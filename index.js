@@ -4,6 +4,12 @@ const slider = (() => {
     '2.jpg',
     '3.jpg',
     '4.jpg',
+    '5.jpg',
+    '6.jpg',
+    '7.jpg',
+    '8.jpg',
+    '9.jpg',
+    '10.jpg',
   ];
 
   const toggleCurrentDot = (index) => {
@@ -27,7 +33,7 @@ const slider = (() => {
     if (indexOfCurrentImg >= 0) {
       let indexOfPreviousImage = indexOfCurrentImg - 1;
       if (indexOfPreviousImage < 0) {
-        indexOfPreviousImage = 3;
+        indexOfPreviousImage = 9;
       }
 
       toggleCurrentDot(indexOfPreviousImage);
@@ -54,7 +60,7 @@ const slider = (() => {
     const indexOfCurrentImg = images.indexOf(filename);
     if (indexOfCurrentImg >= 0) {
       let indexOfNextImage = indexOfCurrentImg + 1;
-      if (indexOfNextImage === 4) {
+      if (indexOfNextImage === 10) {
         indexOfNextImage = 0;
       }
 
@@ -85,7 +91,7 @@ const slider = (() => {
 
     setInterval(() => {
       nextSlide();
-    }, 5000);
+    }, 7000);
   };
 
   return {
