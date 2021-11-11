@@ -73,7 +73,6 @@ const slider = (() => {
   };
 
   const animateSlider = () => {
-    // animateSlideWithDot();
     const btn = document.querySelector('.next');
     btn.addEventListener('click', () => {
       nextSlide();
@@ -83,6 +82,10 @@ const slider = (() => {
     previousBtn.addEventListener('click', () => {
       previousSlide();
     });
+
+    setInterval(() => {
+      nextSlide();
+    }, 5000);
   };
 
   return {
