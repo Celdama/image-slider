@@ -29,11 +29,21 @@
   left: 0;
 }
 
+#app .slider > img.image0 {
+  left: -800px;
+}
+
 #app .slider > img.image2 {
   left: 800px;
 }
 
-#app .slider > img.image2.active {
+#app .slider > img.image2.active-next {
+  left: 0px;
+  transition: left 1.5s ease-in-out;
+}
+
+#app .slider > img.image0.active-previous {
+  z-index: 100;
   left: 0px;
   transition: left 1.5s ease-in-out;
 }
