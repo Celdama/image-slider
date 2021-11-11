@@ -3,3 +3,22 @@
   padding: 0;
   font-family: sans-serif;
 }
+
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#app .slider {
+  height: 400px;
+  width: 90%;
+  outline: 1px solid red;
+}
+
+#app img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
