@@ -6,9 +6,16 @@ const slider = (() => {
     '4.jpg',
   ];
 
-  const nextImage = () => {
-    const image = document.querySelector('.image');
-    const fullPath = image.src;
+  const previousWithEffect = () => {
+
+  };
+
+  const nextWithEffect = () => {
+    const firstImg = document.querySelector('.image');
+    const secondImg = document.querySelector('.image2');
+    console.log(secondImg);
+
+    const fullPath = firstImg.src;
     const filename = fullPath.replace(/^.*[\\\/]/, '');
 
     const indexOfCurrentImg = images.indexOf(filename);
@@ -20,8 +27,13 @@ const slider = (() => {
 
       const nextImageFileName = images[indexOfNextImage];
       const nextImageFullPath = `./images/${nextImageFileName}`;
+      secondImg.src = `${nextImageFullPath}`;
+      secondImg.classList.add('active');
 
-      image.src = `${nextImageFullPath}`;
+      setTimeout(() => {
+        firstImg.src = secondImg.src;
+        secondImg.classList.remove('active');
+      }, 1500);
     }
   };
 
@@ -29,9 +41,10 @@ const slider = (() => {
     // images.forEach((image) => {
     //   console.log(image);
     // });
+
     const btn = document.querySelector('.next');
     btn.addEventListener('click', () => {
-      nextImage();
+      nextWithEffect();
     });
   };
 

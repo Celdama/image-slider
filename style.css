@@ -12,13 +12,28 @@
 }
 
 #app .slider {
-  height: 400px;
-  width: 90%;
-  outline: 1px solid red;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+
+  height: 500px;
+  width: 800px;
 }
 
-#app img {
-  width: 100%;
+#app .slider > img {
+  position: absolute;
   object-fit: cover;
+  width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
+}
+
+#app .slider > img.image2 {
+  left: 800px;
+}
+
+#app .slider > img.image2.active {
+  left: 0px;
+  transition: left 1.5s ease-in-out;
 }
